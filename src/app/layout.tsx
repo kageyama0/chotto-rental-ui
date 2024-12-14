@@ -1,5 +1,5 @@
 import { Providers } from "@/app/providers";
-import { Container } from "@mantine/core";
+import { Container } from "@/components/base/Container/Container";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
