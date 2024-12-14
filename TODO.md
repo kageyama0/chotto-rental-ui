@@ -24,6 +24,7 @@
 # 優先度: 中
 - アイコンの追加
 - レスポンシブデザイン
+- commit時に自動でformatする
 - Component
   - レビュー
     - レビュー一覧
@@ -33,4 +34,6 @@
 
 
 # 優先度: 低
+- github actionsでテストを自動化
+- Storybookの導入
 - SEO対策
