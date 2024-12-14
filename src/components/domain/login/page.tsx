@@ -1,31 +1,25 @@
-"use client";
+'use client';
 
-import { usePage } from "@/components/domain/login/usePage";
-import {
-  Anchor,
-  Button,
-  Container,
-  LoadingOverlay,
-  Paper,
-  PasswordInput,
-  Stack,
-  Text,
-  TextInput,
-  Title,
-} from "@mantine/core";
-import Link from "next/link";
+import { Anchor } from '@/components/base/Anchor/Anchor';
+import { Button } from '@/components/base/Button/Button';
+import { Container } from '@/components/base/Container/Container';
+import { Paper } from '@/components/base/Paper/Paper';
+import { Stack } from '@/components/base/Stack/Stack';
+import { PasswordInput } from '@/components/base/TextInput/PasswordInput';
+import { TextInput } from '@/components/base/TextInput/TextInput';
+import { Text } from '@/components/base/Typography/Text';
+import { TitleLarge } from '@/components/base/Typography/Title';
+import { usePage } from '@/components/domain/login/usePage';
 
 export const LoginPage = () => {
   const { form, loading, error, handleSubmit } = usePage();
 
   return (
     <Container size={420} py={40}>
-      <Title ta="center" mb={30}>
-        ログイン
-      </Title>
-
       <Paper radius="md" p="xl" withBorder pos="relative">
-        <LoadingOverlay visible={loading} />
+        <TitleLarge mb={40}>ログイン</TitleLarge>
+
+        {/* <LoadingOverlay visible={loading} /> */}
 
         <form onSubmit={form.onSubmit(handleSubmit)}>
           <Stack>
@@ -33,14 +27,14 @@ export const LoginPage = () => {
               label="メールアドレス"
               placeholder="your@email.com"
               required
-              {...form.getInputProps("email")}
+              {...form.getInputProps('email')}
             />
 
             <PasswordInput
               label="パスワード"
               placeholder="パスワード"
               required
-              {...form.getInputProps("password")}
+              {...form.getInputProps('password')}
             />
 
             {error && (
@@ -54,8 +48,8 @@ export const LoginPage = () => {
             </Button>
 
             <Text c="dimmed" size="sm" ta="center" mt={5}>
-              アカウントをお持ちでない方は{" "}
-              <Anchor component={Link} href="/signup" size="sm">
+              アカウントをお持ちでない方は{' '}
+              <Anchor href="/signup" size="sm">
                 新規登録
               </Anchor>
             </Text>

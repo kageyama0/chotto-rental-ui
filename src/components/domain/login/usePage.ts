@@ -1,24 +1,26 @@
-"use client";
+'use client';
 
-import { type LoginFormSchema, loginSchema } from "@/components/domain/login/page.schema";
-import { useForm as useMantineForm, zodResolver } from "@mantine/form";
+import {
+  type LoginFormSchema,
+  loginSchema,
+} from '@/components/domain/login/page.schema';
+import { useForm as useMantineForm, zodResolver } from '@mantine/form';
 import { useRouter } from 'next/navigation';
-import { useState } from "react";
+import { useState } from 'react';
 // import { login } from "@/lib/auth";
-
 
 export const usePage = () => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const router = useRouter();
   const login = (values: LoginFormSchema) => {
-    console.log("login", values);
-  }
+    console.log('login', values);
+  };
 
   const form = useMantineForm<LoginFormSchema>({
     initialValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
     validate: zodResolver(loginSchema),
   });
@@ -26,12 +28,12 @@ export const usePage = () => {
   const handleSubmit = async (values: LoginFormSchema) => {
     try {
       setLoading(true);
-      setError("");
+      setError('');
       await login(values);
-      router.push("/"); // ログイン成功後はトップページへ
+      router.push('/'); // ログイン成功後はトップページへ
     } catch (error) {
       setError(
-        "ログインに失敗しました。メールアドレスとパスワードを確認してください。"
+        'ログインに失敗しました。メールアドレスとパスワードを確認してください。'
       );
     } finally {
       setLoading(false);

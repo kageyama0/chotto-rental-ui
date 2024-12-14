@@ -2,6 +2,7 @@
 - SwaggerのschemaからAPI叩く部分の自動生成
 - JWTトークによる認証とその保持
 - Component
+  - Loadingアニメーション出す
   - ユーザー関連
     - ログイン
     - ログアウト

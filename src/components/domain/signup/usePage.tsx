@@ -1,24 +1,24 @@
 import {
   type SignupForm,
   signupSchema,
-} from "@/components/domain/signup/page.schema";
-import type { HooksType } from "@/components/domain/signup/page.types";
-import { useForm as useMantineForm } from "@mantine/form";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { z } from "zod";
+} from '@/components/domain/signup/page.schema';
+import type { HooksType } from '@/components/domain/signup/page.types';
+import { useForm as useMantineForm } from '@mantine/form';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { z } from 'zod';
 
 export const useSignupForm = (): HooksType => {
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   const form = useMantineForm<SignupForm>({
     initialValues: {
-      email: "",
-      password: "",
-      confirmPassword: "",
-      username: "",
+      email: '',
+      password: '',
+      confirmPassword: '',
+      username: '',
     },
     validate: (values) => {
       try {
@@ -26,11 +26,14 @@ export const useSignupForm = (): HooksType => {
         return {};
       } catch (error) {
         if (error instanceof z.ZodError) {
-          return error.errors.reduce((acc, curr) => {
-            const path = curr.path[0] as string;
-            acc[path] = curr.message;
-            return acc;
-          }, {} as Record<string, string>);
+          return error.errors.reduce(
+            (acc, curr) => {
+              const path = curr.path[0] as string;
+              acc[path] = curr.message;
+              return acc;
+            },
+            {} as Record<string, string>
+          );
         }
         return {};
       }
@@ -39,9 +42,9 @@ export const useSignupForm = (): HooksType => {
 
   const handleSubmit = async (values: SignupForm) => {
     try {
-      console.log("values", values);
+      console.log('values', values);
       setIsLoading(true);
-      setError("");
+      setError('');
 
       const validatedData = signupSchema.parse(values);
 
@@ -59,12 +62,12 @@ export const useSignupForm = (): HooksType => {
       //   throw new Error(errorData.message || "登録に失敗しました");
       // }
 
-      router.push("/login");
+      router.push('/login');
     } catch (err) {
       if (err instanceof z.ZodError) {
-        setError("入力内容を確認してください");
+        setError('入力内容を確認してください');
       } else {
-        setError(err instanceof Error ? err.message : "登録に失敗しました");
+        setError(err instanceof Error ? err.message : '登録に失敗しました');
       }
     } finally {
       setIsLoading(false);
