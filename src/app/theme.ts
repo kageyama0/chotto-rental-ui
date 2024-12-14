@@ -13,7 +13,7 @@ export const theme = createTheme({
       '#1E88E5',
       '#1976D2',
       '#1565C0',
-      '#0D47A1'  // 9: 最も暗い
+      '#0D47A1', // 9: 最も暗い
     ],
   },
 
