@@ -24,7 +24,6 @@ export const theme = createTheme({
     fontWeight: '600',
   },
 
-  // 丸みを帯びたコーナー
   radius: {
     xs: rem(4),
     sm: rem(8),
@@ -33,7 +32,6 @@ export const theme = createTheme({
     xl: rem(24),
   },
 
-  // 柔らかい影
   shadows: {
     xs: '0 1px 2px rgba(0, 0, 0, 0.05)',
     sm: '0 1px 3px rgba(0, 0, 0, 0.05)',
@@ -42,7 +40,6 @@ export const theme = createTheme({
     xl: '0 20px 25px rgba(0, 0, 0, 0.07)',
   },
 
-  // その他のコンポーネント固有の設定
   components: {
     Button: {
       defaultProps: {
@@ -68,7 +65,6 @@ export const theme = createTheme({
     },
   },
 
-  // その他のグローバル設定
   other: {
     layoutPadding: rem(24),
     transitionDuration: '200ms',

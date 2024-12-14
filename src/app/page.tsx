@@ -1,12 +1,8 @@
-import { Providers } from "@/app/providers";
-import { Container } from "@mantine/core";
+import { Box } from "@mantine/core";
+import type { NextPage } from "next";
 
-export default function HomePage() {
-  return (
-    <Providers>
-      <Container size="lg" py="xl">
-        Home
-      </Container>
-    </Providers>
-  );
-}
+const HomePage: NextPage = () => {
+  return <Box py="xl">Hello, Mantine!</Box>;
+};
+
+export default HomePage;
