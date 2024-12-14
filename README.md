@@ -1,7 +1,9 @@
 # 構成
-フロントエンド : Next.js + TypeScript + Mantine (https://github.com/kageyama0/chotto-rental-ui)
-バックエンド : Go + Gin (https://github.com/kageyama0/chotto-rental)
-DB : Postgresql
+- フロントエンド : React.js / Next.js / TypeScript / Mantine / 
+  - Repository : https://github.com/kageyama0/chotto-rental-ui  
+- バックエンド : Go / Gin / Gorm / Swagger
+  - Repository : https://github.com/kageyama0/chotto-rental  
+- DB : Postgresql  
 
 # セットアップ
 
@@ -12,6 +14,7 @@ DB : Postgresql
   ```
 
 ## .envを編集
+  - 
 
 
 ## パッケージのインストール
@@ -22,6 +25,6 @@ DB : Postgresql
 
 ## 起動
   
-    ```
-    pnpm dev
-    ```
+  ```
+  pnpm dev
+  ```
