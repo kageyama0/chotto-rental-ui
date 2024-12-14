@@ -6,8 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "biome lint .",
-    "format": "biome format . --write"
+    "lint": "biome lint ./src",
+    "format": "biome lint --apply ./src"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
