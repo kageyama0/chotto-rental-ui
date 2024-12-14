@@ -11,8 +11,8 @@ export const _Box = memo(
       <MantineBox ref={ref} {...props}>
         {props.children}
       </MantineBox>
-    ),
-  ),
+    )
+  )
 );
 
 export const Box = createPolymorphicComponent<'div', BoxProps>(_Box);

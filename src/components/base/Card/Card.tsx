@@ -1,8 +1,8 @@
 import {
   Card as MantineCard,
   type CardProps as MantineCardProps,
-} from "@mantine/core";
-import { forwardRef, memo } from "react";
+} from '@mantine/core';
+import { forwardRef, memo } from 'react';
 
 export type CardProps = MantineCardProps;
 

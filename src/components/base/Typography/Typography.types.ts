@@ -1,3 +1,5 @@
+import type { TextProps as MantineTextProps } from '@mantine/core';
+
 export interface BaseTypographyProps {
   className: string;
   width?: string | number;
@@ -12,6 +14,6 @@ export interface TypographyProps {
   children: React.ReactNode;
 }
 
-export interface TruncatedTypographyProps extends TypographyProps {
-  width?: string | number;
+export interface TextProps extends MantineTextProps {
+  children: React.ReactNode;
 }

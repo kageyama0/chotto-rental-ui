@@ -1,8 +1,8 @@
 import {
   TextInput as MantineTextInput,
   type TextInputProps as MantineTextInputProps,
-} from "@mantine/core";
-import { forwardRef, memo } from "react";
+} from '@mantine/core';
+import { forwardRef, memo } from 'react';
 
 export type TextInputProps = MantineTextInputProps;
 

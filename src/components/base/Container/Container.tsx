@@ -1,6 +1,6 @@
-import { Container as MantineContainer } from "@mantine/core";
-import { forwardRef, memo } from "react";
-import type { ContainerProps as MantineContainerProps } from "@mantine/core";
+import { Container as MantineContainer } from '@mantine/core';
+import { forwardRef, memo } from 'react';
+import type { ContainerProps as MantineContainerProps } from '@mantine/core';
 
 export type ContainerProps = MantineContainerProps;
 

@@ -1,6 +1,6 @@
-import type { StackProps as MantineStackProps } from "@mantine/core";
-import { Stack as MantineStack } from "@mantine/core";
-import { forwardRef, memo } from "react";
+import type { StackProps as MantineStackProps } from '@mantine/core';
+import { Stack as MantineStack } from '@mantine/core';
+import { forwardRef, memo } from 'react';
 
 export type StackProps = MantineStackProps;
 

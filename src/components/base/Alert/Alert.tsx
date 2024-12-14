@@ -1,8 +1,8 @@
 import {
   Alert as MantineAlert,
   type AlertProps as MantineAlertProps,
-} from "@mantine/core";
-import { forwardRef, memo } from "react";
+} from '@mantine/core';
+import { forwardRef, memo } from 'react';
 
 export type AlertProps = MantineAlertProps;
 

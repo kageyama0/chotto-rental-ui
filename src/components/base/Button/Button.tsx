@@ -1,6 +1,6 @@
-import type { BaseButtonProps } from "@/components/base/Button/Button.types";
-import { Button as MantineButton } from "@mantine/core";
-import { forwardRef, memo } from "react";
+import type { BaseButtonProps } from '@/components/base/Button/Button.types';
+import { Button as MantineButton } from '@mantine/core';
+import { forwardRef, memo } from 'react';
 
 export const Button = memo(
   forwardRef<HTMLButtonElement, BaseButtonProps>(
