@@ -6,7 +6,7 @@ import { forwardRef, memo } from 'react';
 
 export type TitleProps = MantineTitleProps;
 
-export const TitleLarge = memo(
+export const Title = memo(
   forwardRef<HTMLDivElement, TitleProps>((props: TitleProps, ref) => {
     return <MantineTitle ref={ref} {...props} />;
   })

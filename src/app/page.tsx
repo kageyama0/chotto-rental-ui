@@ -1,8 +1,8 @@
-import { Box } from '@mantine/core';
 import type { NextPage } from 'next';
+import { CaseListPage as Component} from "@/components/domain/case/page";
 
 const HomePage: NextPage = () => {
-  return <Box py="xl">Hello, Mantine!</Box>;
+  return <Component />;
 };
 
 export default HomePage;
