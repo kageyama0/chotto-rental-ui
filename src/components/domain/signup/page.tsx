@@ -6,7 +6,7 @@ import { Container } from '@/components/base/Container/Container';
 import { Stack } from '@/components/base/Stack/Stack';
 import { TextInput } from '@/components/base/TextInput/TextInput';
 import { TitleLarge } from '@/components/base/Typography/Title';
-import { useSignupForm } from '@/components/domain/signup/usePage';
+import { useSignupForm } from '@/components/domain/Signup/usePage';
 
 export const SignupPage = () => {
   const { form, error, isLoading, onSubmit } = useSignupForm();
@@ -18,13 +18,13 @@ export const SignupPage = () => {
           <TitleLarge>ユーザー登録</TitleLarge>
 
           <form onSubmit={onSubmit}>
-            <Stack gap="md">
+            <Stack mb={20} gap="md">
               <Box>
                 <TextInput
-                  id="username"
+                  id="displayName"
                   label="ユーザー名"
                   placeholder="ユーザー名"
-                  {...form.getInputProps('username')}
+                  {...form.getInputProps('displayName')}
                 />
               </Box>
 
@@ -64,7 +64,7 @@ export const SignupPage = () => {
                 </Alert>
               )}
 
-              <Button type="submit" loading={isLoading} fullWidth>
+              <Button mt={20} type="submit" loading={isLoading} fullWidth>
                 登録する
               </Button>
             </Stack>

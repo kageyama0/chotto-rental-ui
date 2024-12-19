@@ -9,9 +9,10 @@ import { PasswordInput } from '@/components/base/TextInput/PasswordInput';
 import { TextInput } from '@/components/base/TextInput/TextInput';
 import { Text } from '@/components/base/Typography/Text';
 import { TitleLarge } from '@/components/base/Typography/Title';
-import { usePage } from '@/components/domain/login/usePage';
+import { usePage } from '@/components/domain/Login/usePage';
 
 export const LoginPage = () => {
+  // TODO: 後でローディング時の挙動を追加する
   const { form, loading, error, handleSubmit } = usePage();
 
   return (

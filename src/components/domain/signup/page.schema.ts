@@ -16,7 +16,7 @@ export const signupSchema = z
     confirmPassword: z
       .string()
       .min(1, { message: 'パスワードを再入力してください' }),
-    username: z
+    displayName: z
       .string()
       .min(3, { message: 'ユーザー名は3文字以上である必要があります' })
       .max(50, { message: 'ユーザー名は50文字以下である必要があります' })

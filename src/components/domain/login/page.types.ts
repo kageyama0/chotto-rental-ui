@@ -1,4 +1,4 @@
-import type { LoginFormSchema } from '@/components/domain/login/page.schema';
+import type { LoginFormSchema } from '@/components/domain/Login/page.schema';
 import type { UseFormReturnType } from '@mantine/form';
 
 export interface HooksType {

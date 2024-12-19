@@ -1,8 +1,9 @@
 import {
   type SignupForm,
   signupSchema,
-} from '@/components/domain/signup/page.schema';
-import type { HooksType } from '@/components/domain/signup/page.types';
+} from '@/components/domain/Signup/page.schema';
+import type { HooksType } from '@/components/domain/Signup/page.types';
+import { useAuth } from '@/hooks/auth/useAuth';
 import { useForm as useMantineForm } from '@mantine/form';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -12,13 +13,14 @@ export const useSignupForm = (): HooksType => {
   const [error, setError] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const { signup } = useAuth();
 
   const form = useMantineForm<SignupForm>({
     initialValues: {
       email: '',
       password: '',
       confirmPassword: '',
-      username: '',
+      displayName: '',
     },
     validate: (values) => {
       try {
@@ -32,7 +34,7 @@ export const useSignupForm = (): HooksType => {
               acc[path] = curr.message;
               return acc;
             },
-            {} as Record<string, string>
+            {} as Record<string, string>,
           );
         }
         return {};
@@ -42,26 +44,13 @@ export const useSignupForm = (): HooksType => {
 
   const handleSubmit = async (values: SignupForm) => {
     try {
-      console.log('values', values);
       setIsLoading(true);
       setError('');
 
       const validatedData = signupSchema.parse(values);
+      await signup(validatedData);
 
-      // ここをAPIを叩くカスタムフックに変更する
-      // const response = await fetch("/api/signup", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(validatedData),
-      // });
-
-      // if (!response.ok) {
-      //   const errorData = await response.json().catch(() => ({}));
-      //   throw new Error(errorData.message || "登録に失敗しました");
-      // }
-
+      setIsLoading(false);
       router.push('/login');
     } catch (err) {
       if (err instanceof z.ZodError) {
