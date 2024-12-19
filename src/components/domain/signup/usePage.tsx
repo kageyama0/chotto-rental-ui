@@ -1,8 +1,8 @@
 import {
   type SignupForm,
   signupSchema,
-} from '@/components/domain/Signup/page.schema';
-import type { HooksType } from '@/components/domain/Signup/page.types';
+} from '@/components/domain/signup/page.schema';
+import type { HooksType } from '@/components/domain/signup/page.types';
 import { useAuth } from '@/hooks/auth/useAuth';
 import { useForm as useMantineForm } from '@mantine/form';
 import { useRouter } from 'next/navigation';

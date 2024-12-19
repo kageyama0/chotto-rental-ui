@@ -3,7 +3,7 @@
 import {
   type LoginFormSchema,
   loginSchema,
-} from '@/components/domain/Login/page.schema';
+} from '@/components/domain/login/page.schema';
 import { useAuth } from '@/hooks/auth/useAuth';
 import { useForm as useMantineForm, zodResolver } from '@mantine/form';
 import { useRouter } from 'next/navigation';

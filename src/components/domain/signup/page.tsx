@@ -6,7 +6,7 @@ import { Container } from '@/components/base/Container/Container';
 import { Stack } from '@/components/base/Stack/Stack';
 import { TextInput } from '@/components/base/TextInput/TextInput';
 import { TitleLarge } from '@/components/base/Typography/Title';
-import { useSignupForm } from '@/components/domain/Signup/usePage';
+import { useSignupForm } from '@/components/domain/signup/usePage';
 
 export const SignupPage = () => {
   const { form, error, isLoading, onSubmit } = useSignupForm();
