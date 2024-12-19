@@ -36,7 +36,7 @@ const sampleCases: Case[] = [
   // ... 他の案件データ
 ];
 
-export const CaseListPage = () => {
+export const CaseList = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<string | null>(null);
 

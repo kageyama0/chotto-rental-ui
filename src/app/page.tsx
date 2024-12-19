@@ -1,5 +1,5 @@
+import { HomePage as Component } from '@/components/domain/index';
 import type { NextPage } from 'next';
-import { CaseListPage as Component} from "@/components/domain/case/page";
 
 const HomePage: NextPage = () => {
   return <Component />;
