@@ -8,7 +8,7 @@ import { Stack } from '@/components/base/Stack/Stack';
 import { PasswordInput } from '@/components/base/TextInput/PasswordInput';
 import { TextInput } from '@/components/base/TextInput/TextInput';
 import { Text } from '@/components/base/Typography/Text';
-import { TitleLarge } from '@/components/base/Typography/Title';
+import { Title } from '@/components/base/Typography/Title';
 import { usePage } from '@/components/domain/login/usePage';
 
 export const LoginPage = () => {
@@ -18,7 +18,7 @@ export const LoginPage = () => {
   return (
     <Container size={420} py={40}>
       <Paper radius="md" p="xl" withBorder pos="relative">
-        <TitleLarge mb={40}>ログイン</TitleLarge>
+        <Title mb={40}>ログイン</Title>
 
         {/* <LoadingOverlay visible={loading} /> */}
 

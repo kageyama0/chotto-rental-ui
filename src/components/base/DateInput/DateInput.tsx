@@ -1,5 +1,5 @@
+import type { DateInputProps } from '@/components/base/DateInput/DateInput.types';
 import { DateInput as MantineDateInput } from '@mantine/dates';
-import type { DateInputProps } from './DateInput.types';
 import { forwardRef, memo } from 'react';
 
 export const DateInput = memo(
@@ -7,5 +7,3 @@ export const DateInput = memo(
     return <MantineDateInput ref={ref} {...props} />;
   }),
 );
-
-DateInput.displayName = 'DateInput';

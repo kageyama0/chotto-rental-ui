@@ -5,7 +5,7 @@ import { Card } from '@/components/base/Card/Card';
 import { Container } from '@/components/base/Container/Container';
 import { Stack } from '@/components/base/Stack/Stack';
 import { TextInput } from '@/components/base/TextInput/TextInput';
-import { TitleLarge } from '@/components/base/Typography/Title';
+import { Title } from '@/components/base/Typography/Title';
 import { useSignupForm } from '@/components/domain/signup/usePage';
 
 export const SignupPage = () => {
@@ -15,7 +15,7 @@ export const SignupPage = () => {
     <Container size="xs">
       <Card shadow="sm" p="lg" radius="md" withBorder>
         <Stack gap="md">
-          <TitleLarge>ユーザー登録</TitleLarge>
+          <Title>ユーザー登録</Title>
 
           <form onSubmit={onSubmit}>
             <Stack mb={20} gap="md">
