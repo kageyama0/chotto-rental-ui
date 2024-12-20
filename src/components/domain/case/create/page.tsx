@@ -16,34 +16,7 @@ import { TimeInput } from '@/components/base/TimeInput/TimeInput';
 import { Text } from '@/components/base/Typography/Text';
 import { Title } from '@/components/base/Typography/Title';
 import { usePage } from '@/components/domain/case/create/usePage';
-
-interface CreateCaseForm {
-  title: string;
-  description: string;
-  category: string;
-  reward: number;
-  requiredPeople: number;
-  date: Date | null;
-  startTime: string;
-  duration: number;
-  prefecture: string;
-  city: string;
-  address: string;
-}
-
-const initialForm: CreateCaseForm = {
-  title: '',
-  description: '',
-  category: '',
-  reward: 1000,
-  requiredPeople: 1,
-  date: null,
-  startTime: '',
-  duration: 30,
-  prefecture: '',
-  city: '',
-  address: '',
-};
+import { PREFECTURES } from '@/const/prefectures';
 
 export const CreateCasePage = () => {
   const { form, back, handleSubmit } = usePage();
@@ -170,11 +143,7 @@ export const CreateCasePage = () => {
                       label="都道府県"
                       placeholder="都道府県を選択"
                       required
-                      data={[
-                        { value: 'tokyo', label: '東京都' },
-                        { value: 'kanagawa', label: '神奈川県' },
-                        // ... 他の都道府県
-                      ]}
+                      data={PREFECTURES}
                       {...form.getInputProps('prefecture')}
                     />
                   </GridCol>
