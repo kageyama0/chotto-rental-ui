@@ -1,4 +1,4 @@
-import { SIGNUP_PATH } from '@/hooks/api/path';
+import { SIGNUP_PATH } from '@/const/apiPath';
 import type { ApiResponse } from '@/hooks/api/types';
 import { createMutationHook } from '@/hooks/api/useApi';
 import { api } from '@/services/api/apiClient';
