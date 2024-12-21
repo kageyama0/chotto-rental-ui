@@ -104,9 +104,10 @@ export const CreateCasePage = () => {
                   <GridCol span={6}>
                     <DateInput
                       label="日付"
+                      valueFormat="YYYY/MM/DD"
                       placeholder="日付を選択"
                       required
-                      {...form.getInputProps('date')}
+                      {...form.getInputProps('scheduledDate')}
                     />
                   </GridCol>
                   <GridCol span={6}>

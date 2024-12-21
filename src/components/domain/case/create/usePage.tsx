@@ -1,18 +1,20 @@
 import type { CreateCaseFormSchema } from '@/components/domain/case/create/page.schema';
 import { createCaseFormSchema } from '@/components/domain/case/create/page.schema';
+import { useCreateCase } from '@/hooks/api/case/create';
 import { createZodValidator } from '@/utils/form/validate';
 import { useForm as useMantineForm } from '@mantine/form';
 import { useRouter } from 'next/navigation';
 
 export const usePage = () => {
   const router = useRouter();
+  const createCase = useCreateCase();
   const initialValues: CreateCaseFormSchema = {
     title: '',
     description: '',
     category: '',
     reward: 1000,
     requiredPeople: 1,
-    date: new Date(),
+    scheduledDate: '',
     startTime: '',
     duration: 30,
     prefecture: '',
@@ -29,16 +31,11 @@ export const usePage = () => {
     try {
       // API呼び出し
       console.log('Form submitted:', values);
-
-      // notifications.show({
-      //   title: '依頼を作成しました',
-      //   message: '依頼の作成に成功しました',
-      //   color: 'green',
-      // });
-
+      const response = await createCase.mutateAsync(values);
+      console.log('API response:', response);
+      const caseId = response.data.id;
       // 成功時にリダイレクト
-      const case_id = '1';
-      // router.push(`/case/${case_id}`);
+      router.push(`/case/${caseId}`);
     } catch (error) {
       // notifications.show({
       //   title: 'エラーが発生しました',

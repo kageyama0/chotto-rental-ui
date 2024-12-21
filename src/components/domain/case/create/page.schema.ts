@@ -18,10 +18,12 @@ export const createCaseFormSchema = z.object({
     .number()
     .min(1, '募集人数は1人以上で設定してください')
     .max(10, '募集人数は10人以下で設定してください'),
-  date: z.date({
-    required_error: '日付を選択してください',
-    invalid_type_error: '有効な日付を選択してください',
-  }),
+  scheduledDate: z
+    .date({
+      required_error: '日付を選択してください',
+      invalid_type_error: '有効な日付を選択してください',
+    })
+    .transform((date) => date.toISOString().split('T')[0]),
   startTime: z.string().min(1, '開始時間を入力してください'),
   duration: z
     .number()
