@@ -1,0 +1,5 @@
+.toasts[data-position='top-center'] {
+  top: var(--spacing-xxl);
+  width: 25rem;
+  max-width: 25rem;
+}

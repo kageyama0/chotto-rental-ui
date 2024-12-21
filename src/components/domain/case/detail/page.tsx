@@ -74,11 +74,19 @@ const sampleCaseDetail: CaseDetail = {
 
 export const CaseDetailPage = () => {
   const searchParams = useSearchParams();
-  const case_id = searchParams.get('case_id');
-  console.log(case_id);
+  const caseId = searchParams.get('case_id');
+  console.log(caseId);
 
   // TODO: 実際のアプリケーションではここでAPIを呼び出してデータを取得
   const caseData = sampleCaseDetail;
+  // TODO: ローディング中の表示を追加
+  // if (isLoading) return <div>Loading...</div>;
+
+  // TODO: エラー時の表示を追加
+  // if (error) return <div>Error occurred</div>;
+
+  // TODO: データが取得できなかった場合の表示を追加
+  // if (!caseData) return null;
 
   const getStatusVariant = (status: string): BadgeProps['variant'] => {
     switch (status) {
@@ -179,21 +187,21 @@ export const CaseDetailPage = () => {
               </Stack>
             </Card>
 
-            {/* 依頼者情報 */}
+            依頼者情報
             <Card>
               <Title order={3} size="h4" mb="md">
                 依頼者
               </Title>
               <Group>
-                <Avatar
+                {/* <Avatar
                   src={caseData.requester.avatar}
                   alt={caseData.requester.name}
                   radius="xl"
                   size="lg"
-                />
+                /> */}
                 <div>
-                  <Text>{caseData.requester.name}</Text>
-                  <Group gap="xs">
+                  {/* <Text>{caseData.requester.name}</Text> */}
+                  {/* <Group gap="xs">
                     <Text size="sm">評価: {caseData.requester.rating}</Text>
                     <Text size="sm" c="dimmed">
                       •
@@ -201,7 +209,7 @@ export const CaseDetailPage = () => {
                     <Text size="sm">
                       取引完了: {caseData.requester.completedCases}件
                     </Text>
-                  </Group>
+                  </Group> */}
                 </div>
               </Group>
             </Card>
