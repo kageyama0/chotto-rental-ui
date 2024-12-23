@@ -1,8 +1,8 @@
 'use client';
 
 import { Avatar } from '@/components/base/Avatar/Avatar';
-// import { Button } from '@/components/base/Button/Button';
 import { Group } from '@/components/base/Group/Group';
+import { IconLogout } from '@/components/base/Icon/IconLogout';
 import {
   Menu,
   MenuDivider,
@@ -37,8 +37,7 @@ export const Header = () => {
           <MenuDivider />
 
           <MenuItem
-            // TODO: ログアウトアイコンを追加する
-            // leftSection={<IconLogout size={16} />}
+            leftSection={<IconLogout />}
             onClick={logout}
             color="red"
           >
