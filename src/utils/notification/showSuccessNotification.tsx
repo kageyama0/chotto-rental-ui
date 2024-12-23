@@ -8,6 +8,7 @@ interface Props {
 export const showSuccessNotification = (props: Props) => {
   return showNotification({
     icon: <IconCheckCircle type="success" />,
+    color: "blue",
     ...props,
   });
 };

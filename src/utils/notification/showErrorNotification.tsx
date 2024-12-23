@@ -8,6 +8,7 @@ interface Props {
 export const showErrorNotification = (props: Props) => {
   return showNotification({
     icon: <IconReport type="error" />,
+    color: "red",
     ...props,
   });
 };
