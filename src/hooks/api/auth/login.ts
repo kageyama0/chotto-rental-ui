@@ -2,6 +2,8 @@ import { LOGIN_API_PATH } from '@/const/apiPath';
 import type { ApiResponse } from '@/hooks/api/types';
 import { createMutationHook } from '@/hooks/api/useApi';
 import { api, queryClient } from '@/services/api/apiClient';
+import { showErrorNotification } from '@/utils/notification/showErrorNotification';
+import { showSuccessNotification } from '@/utils/notification/showSuccessNotification';
 
 export interface LoginRequest {
   email: string;
@@ -18,8 +20,11 @@ export const useLoginMutation = createMutationHook<LoginResponse, LoginRequest>(
   login,
   {
     onSuccess: () => {
-      // ログイン成功時の処理（必要に応じて）
+      showSuccessNotification({ message: 'ログインしました' });
       queryClient.invalidateQueries({ queryKey: ['user'] });
+    },
+    onError: () => {
+      showErrorNotification({ message: 'ログインに失敗しました' });
     },
   },
 );

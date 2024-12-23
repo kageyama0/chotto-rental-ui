@@ -11,15 +11,15 @@ export const apiClient = axios.create({
 });
 
 // エラーハンドリング
-apiClient.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      window.location.href = '/login';
-    }
-    return Promise.reject(error);
-  },
-);
+// apiClient.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     if (error.response?.status === 401) {
+//       window.location.href = '/login';
+//     }
+//     return Promise.reject(error);
+//   },
+// );
 
 // QueryClientの設定
 export const queryClient = new QueryClient({

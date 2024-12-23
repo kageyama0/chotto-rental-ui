@@ -2,6 +2,8 @@ import { SIGNUP_API_PATH } from '@/const/apiPath';
 import type { ApiResponse } from '@/hooks/api/types';
 import { createMutationHook } from '@/hooks/api/useApi';
 import { api } from '@/services/api/apiClient';
+import { showErrorNotification } from '@/utils/notification/showErrorNotification';
+import { showSuccessNotification } from '@/utils/notification/showSuccessNotification';
 
 export interface SignupRequest {
   displayName: string;
@@ -19,7 +21,11 @@ export const useSignup = createMutationHook<SignupResponse, SignupRequest>(
   },
   {
     onSuccess: () => {
-      // ログイン成功時の処理（必要に応じて）
+      showSuccessNotification({ message: 'アカウントを作成しました' });
+    },
+    onError: () => {
+      showErrorNotification({ message: 'アカウント作成に失敗しました' });
+      throw new Error('Login failed');
     },
   },
 );

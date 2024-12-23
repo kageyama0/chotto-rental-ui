@@ -32,33 +32,23 @@ export const useAuth = (): HooksType => {
 
   // ログイン処理
   const login = async (req: LoginRequest): Promise<void> => {
-    const res = await loginApi.mutateAsync(req);
-    if (res.http_code !== HTTP_CODE.OK) {
-      throw new Error('Login failed');
-    }
+    await loginApi.mutateAsync(req);
     setIsAuthenticated(true);
     router.push('/');
   };
 
   // サインアップ処理
   const signup = async (req: SignupRequest): Promise<void> => {
-    const res = await signupApi.mutateAsync(req);
-    if (res.http_code !== HTTP_CODE.CREATED) {
-      throw new Error('Signup failed');
-    }
+    await signupApi.mutateAsync(req);
     setIsAuthenticated(true);
     router.push('/');
   };
 
   // ログアウト処理
   const logout = async () => {
-    const res = await logoutApi.mutateAsync(null);
-    if (res.http_code !== HTTP_CODE.OK) {
-      throw new Error('Logout failed');
-    }
-
-    setIsAuthenticated(false);
     router.push('/login');
+    await logoutApi.mutateAsync(null);
+    setIsAuthenticated(false);
   };
 
   return {

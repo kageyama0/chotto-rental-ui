@@ -2,6 +2,7 @@ import { USER_PROFILE_API_PATH } from '@/const/apiPath';
 import type { ApiResponse } from '@/hooks/api/types';
 import { createQueryHook } from '@/hooks/api/useApi';
 import { api } from '@/services/api/apiClient';
+import { showErrorNotification } from '@/utils/notification/showErrorNotification';
 
 interface GetUserProfileResponseData {
   id: string;
@@ -20,4 +21,9 @@ const getUserProfile = async (): Promise<GetUserProfileResponse> => {
 export const useGetUserProfileAPI = createQueryHook<GetUserProfileResponse>(
   ['user', 'profile'],
   getUserProfile,
+  {
+    onError: () => {
+      showErrorNotification({ message: 'ユーザー情報の取得に失敗しました' });
+    }
+  }
 );
