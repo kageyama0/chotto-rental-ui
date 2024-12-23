@@ -18,7 +18,7 @@ import {
   SIGNUP_CLIENT_PATH,
 } from '@/const/clientPath';
 import { IconUserCircle } from '@tabler/icons-react';
-import Image from 'next/image';
+import { Image } from "@/components/base/Image/Image";
 import { usePathname } from 'next/navigation';
 
 export const Header = () => {
@@ -29,7 +29,12 @@ export const Header = () => {
 
   return (
     <Group justify="space-between" h="100%" px="md">
-      <Image src="/logo.png" alt="logo" width={150} height={40} />
+      <Image
+        src="https://res.cloudinary.com/dsgye09ai/image/upload/v1734966367/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2024-12-23_21.41.38_sehkta.png"
+        alt="logo"
+        width={180}
+        height={40}
+      />
 
       {!isAuthPage && (
         <Group>
