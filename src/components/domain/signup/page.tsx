@@ -1,3 +1,5 @@
+"use client";
+
 import { Alert } from '@/components/base/Alert/Alert';
 import { Box } from '@/components/base/Box/Box';
 import { Button } from '@/components/base/Button/Button';
@@ -6,10 +8,10 @@ import { Container } from '@/components/base/Container/Container';
 import { Stack } from '@/components/base/Stack/Stack';
 import { TextInput } from '@/components/base/TextInput/TextInput';
 import { Title } from '@/components/base/Typography/Title';
-import { useSignupForm } from '@/components/domain/signup/usePage';
+import { usePage } from '@/components/domain/signup/usePage';
 
 export const SignupPage = () => {
-  const { form, error, isLoading, onSubmit } = useSignupForm();
+  const { form, error, isLoading, onSubmit } = usePage();
 
   return (
     <Container size="xs">

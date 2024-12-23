@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { z } from 'zod';
 
-export const useSignupForm = (): HooksType => {
+export const usePage = (): HooksType => {
   const [error, setError] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -46,7 +46,6 @@ export const useSignupForm = (): HooksType => {
     try {
       setIsLoading(true);
       setError('');
-
       const validatedData = signupSchema.parse(values);
       await signup(validatedData);
 
