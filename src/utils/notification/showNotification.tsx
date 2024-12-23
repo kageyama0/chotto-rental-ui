@@ -1,5 +1,5 @@
 import { ToastInner } from '@/components/base/Toast/parts/ToastInner/ToastInner';
-// import { AUTO_CLOSE_TIME } from '@/const/notification';
+import { AUTO_CLOSE_TIME } from '@/const/notification';
 import { notifications } from '@mantine/notifications';
 import { v4 as uuid } from 'uuid';
 
@@ -15,7 +15,7 @@ export const showNotification = (props: Props) => {
 
   return notifications.show({
     id,
-    autoClose: false,
+    autoClose: AUTO_CLOSE_TIME,
     withCloseButton: false,
     position: 'top-center',
     color: props.color,
