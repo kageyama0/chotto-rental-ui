@@ -100,8 +100,8 @@ export interface UpdateUserRequest {
   display_name: string;
 }
 
-export interface ApiResponse<T> {
-  code: number;
+export interface ApiResponse<TResponseData> {
+  http_code: number;
   msg: string;
-  data: T;
+  data: TResponseData;
 }

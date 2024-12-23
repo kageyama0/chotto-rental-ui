@@ -1,10 +1,20 @@
-import { LOGOUT_PATH } from '@/const/apiPath';
+import { LOGOUT_API_PATH } from '@/const/apiPath';
 import type { ApiResponse } from '@/hooks/api/types';
 import { createMutationHook } from '@/hooks/api/useApi';
-import { api } from '@/services/api/apiClient';
+import { api, queryClient } from '@/services/api/apiClient';
 
-export const useLogout = createMutationHook(() =>
-  api.post<ApiResponse<null>>(LOGOUT_PATH).then((response) => {
-    return response;
-  }),
-);
+type LogoutRequest = null;
+interface LogoutResponse extends ApiResponse<null> {}
+
+const logout = async (): Promise<LogoutResponse> => {
+  return api.post<LogoutResponse, LogoutRequest>(LOGOUT_API_PATH);
+};
+
+export const useLogoutMutation = createMutationHook<
+  LogoutResponse,
+  LogoutRequest
+>(logout, {
+  onSuccess: () => {
+    queryClient.invalidateQueries({ queryKey: ['user'] });
+  },
+});

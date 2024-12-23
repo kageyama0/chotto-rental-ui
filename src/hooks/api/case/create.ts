@@ -1,7 +1,7 @@
-import { CASE_PATH } from '@/const/apiPath';
+import { CASE_API_PATH } from '@/const/apiPath';
 import type { ApiResponse } from '@/hooks/api/types';
 import { createMutationHook } from '@/hooks/api/useApi';
-import { api } from '@/services/api/apiClient';
+import { api, queryClient } from '@/services/api/apiClient';
 
 export interface CreateCaseRequest {
   title: string; // max 100文字
@@ -33,8 +33,33 @@ interface CreateCaseResponse {
   status: string;
 }
 
-export const useCreateCase = createMutationHook((req: CreateCaseRequest) =>
-  api.post<ApiResponse<CreateCaseResponse>>(CASE_PATH, req).then((response) => {
-    return response;
-  }),
-);
+interface CreateCaseResponseData {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  reward: number;
+  requiredPeople: number;
+  scheduledDate: string;
+  startTime: string;
+  duration: number;
+  prefecture: string;
+  city: string;
+  address: string;
+  status: string;
+}
+
+interface CreateCaseResponse extends ApiResponse<CreateCaseResponseData> {}
+
+const createCase = async (): Promise<CreateCaseResponse> => {
+  return api.post<CreateCaseResponse, CreateCaseRequest>(CASE_API_PATH);
+};
+
+export const useCreateCase = createMutationHook<
+  CreateCaseResponse,
+  CreateCaseRequest
+>(createCase, {
+  onSuccess: () => {
+    queryClient.invalidateQueries({ queryKey: ['case'] });
+  },
+});

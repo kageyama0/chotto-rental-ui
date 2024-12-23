@@ -1,18 +1,18 @@
 import { Providers } from '@/app/providers';
-import { Container } from '@/components/base/Container/Container';
+import { RootLayout as Layout } from '@/components/domain/layouts/rootLayout/RootLayout';
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="ja">
       <body>
         <Providers>
-          <Container size="lg" py="xl">
-            {children}
-          </Container>
+          <Layout>{children}</Layout>
         </Providers>
       </body>
     </html>
   );
-};
-
-export default RootLayout;
+}

@@ -1,5 +1,6 @@
-import { type LoginRequest, useLogin } from '@/hooks/api/auth/login';
-import { useLogout } from '@/hooks/api/auth/logout';
+import { HTTP_CODE } from '@/const/httpStatusCode';
+import { type LoginRequest, useLoginMutation } from '@/hooks/api/auth/login';
+import { useLogoutMutation } from '@/hooks/api/auth/logout';
 import { type SignupRequest, useSignup } from '@/hooks/api/auth/signup';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
@@ -15,8 +16,8 @@ interface HooksType {
 export const useAuth = (): HooksType => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const router = useRouter();
-  const loginApi = useLogin();
-  const logoutApi = useLogout();
+  const loginApi = useLoginMutation();
+  const logoutApi = useLogoutMutation();
   const signupApi = useSignup();
 
   // cookieにsession_idがあるかどうかで認証状態を判定
@@ -31,35 +32,33 @@ export const useAuth = (): HooksType => {
 
   // ログイン処理
   const login = async (req: LoginRequest): Promise<void> => {
-    try {
-      const res = await loginApi.mutateAsync(req);
-      setIsAuthenticated(true);
-      router.push('/');
-    } catch (error) {
-      console.error('Login failed:', error);
+    const res = await loginApi.mutateAsync(req);
+    if (res.http_code !== HTTP_CODE.OK) {
+      throw new Error('Login failed');
     }
+    setIsAuthenticated(true);
+    router.push('/');
   };
 
   // サインアップ処理
   const signup = async (req: SignupRequest): Promise<void> => {
-    try {
-      const res = await signupApi.mutateAsync(req);
-      setIsAuthenticated(true);
-      router.push('/');
-    } catch (error) {
-      console.error('Signup failed:', error);
+    const res = await signupApi.mutateAsync(req);
+    if (res.http_code !== HTTP_CODE.CREATED) {
+      throw new Error('Signup failed');
     }
+    setIsAuthenticated(true);
+    router.push('/');
   };
 
   // ログアウト処理
   const logout = async () => {
-    try {
-      await logoutApi.mutateAsync({});
-      setIsAuthenticated(false);
-      router.push('/login');
-    } catch (error) {
-      console.error('Logout failed:', error);
+    const res = await logoutApi.mutateAsync(null);
+    if (res.http_code !== HTTP_CODE.OK) {
+      throw new Error('Logout failed');
     }
+
+    setIsAuthenticated(false);
+    router.push('/login');
   };
 
   return {

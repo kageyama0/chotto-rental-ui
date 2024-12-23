@@ -35,36 +35,34 @@ export const queryClient = new QueryClient({
 // 共通のAPI関数
 export const api = {
   // GET リクエスト
-  get: async <T>(url: string, config?: AxiosRequestConfig) => {
-    const response = await apiClient.get<T>(url, config);
+  get: async <TResponse>(url: string, config?: AxiosRequestConfig) => {
+    const response = await apiClient.get<TResponse>(url, config);
     return response.data;
   },
 
   // POST リクエスト
-  // biome-ignore lint:any
-  post: async <T, D = any>(
+  post: async <TResponse, TRequest>(
     url: string,
-    data?: D,
+    data?: TRequest,
     config?: AxiosRequestConfig,
   ) => {
-    const response = await apiClient.post<T>(url, data, config);
+    const response = await apiClient.post<TResponse>(url, data, config);
     return response.data;
   },
 
   // PUT リクエスト
-  // biome-ignore lint:any
-  put: async <T, D = any>(
+  put: async <TResponse, TRequest>(
     url: string,
-    data?: D,
+    data?: TRequest,
     config?: AxiosRequestConfig,
   ) => {
-    const response = await apiClient.put<T>(url, data, config);
+    const response = await apiClient.put<TResponse>(url, data, config);
     return response.data;
   },
 
   // DELETE リクエスト
-  delete: async <T>(url: string, config?: AxiosRequestConfig) => {
-    const response = await apiClient.delete<T>(url, config);
+  delete: async <TResponse>(url: string, config?: AxiosRequestConfig) => {
+    const response = await apiClient.delete<TResponse>(url, config);
     return response.data;
   },
 };
