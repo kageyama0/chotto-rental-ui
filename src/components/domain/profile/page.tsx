@@ -5,6 +5,7 @@ import { Button } from '@/components/base/Button/Button';
 import { Card } from '@/components/base/Card/Card';
 import { Container } from '@/components/base/Container/Container';
 import { Group } from '@/components/base/Group/Group';
+import { LoadingOverlay } from '@/components/base/LoadingOverlay/LoadingOverlay';
 import { Stack } from '@/components/base/Stack/Stack';
 import { Text } from '@/components/base/Typography/Text';
 import { Title } from '@/components/base/Typography/Title';
@@ -19,12 +20,6 @@ export const ProfilePage = () => {
     avatar: 'https://source.unsplash.com/random',
   };
 
-  // TODO: Loadingコンポーネントを作成する
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  //
   // if (!profile) {
   //   return <div>プロフィールが見つかりません</div>;
   // }
@@ -33,6 +28,8 @@ export const ProfilePage = () => {
     <Container size="sm" py="xl">
       <Stack gap="xl">
         <Title order={1}>プロフィール</Title>
+
+        <LoadingOverlay visible={isLoading} />
 
         <Card withBorder>
           <Stack gap="xl">

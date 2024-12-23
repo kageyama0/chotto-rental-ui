@@ -3,6 +3,7 @@
 import { Anchor } from '@/components/base/Anchor/Anchor';
 import { Button } from '@/components/base/Button/Button';
 import { Container } from '@/components/base/Container/Container';
+import { LoadingOverlay } from '@/components/base/LoadingOverlay/LoadingOverlay';
 import { Paper } from '@/components/base/Paper/Paper';
 import { Stack } from '@/components/base/Stack/Stack';
 import { PasswordInput } from '@/components/base/TextInput/PasswordInput';
@@ -12,15 +13,14 @@ import { Title } from '@/components/base/Typography/Title';
 import { usePage } from '@/components/domain/login/usePage';
 
 export const LoginPage = () => {
-  // TODO: 後でローディング時の挙動を追加する
-  const { form, loading, error, handleSubmit } = usePage();
+  const { form, isLoading, error, handleSubmit } = usePage();
 
   return (
     <Container size={420} py={40}>
       <Paper radius="md" p="xl" withBorder pos="relative">
         <Title mb={40}>ログイン</Title>
 
-        {/* <LoadingOverlay visible={loading} /> */}
+        <LoadingOverlay visible={isLoading} />
 
         <form onSubmit={form.onSubmit(handleSubmit)}>
           <Stack>

@@ -12,6 +12,7 @@ import { Title } from '@/components/base/Typography/Title';
 import { Avatar } from '@/components/base/Avatar/Avatar';
 import type { BadgeProps } from '@/components/base/Badge/Badge.types';
 import { GridCol } from '@/components/base/Grid/GridCol';
+import { LoadingOverlay } from '@/components/base/LoadingOverlay/LoadingOverlay';
 
 interface CaseDetail {
   id: string;
@@ -79,8 +80,9 @@ export const CaseDetailPage = () => {
 
   // TODO: 実際のアプリケーションではここでAPIを呼び出してデータを取得
   const caseData = sampleCaseDetail;
-  // TODO: ローディング中の表示を追加
-  // if (isLoading) return <div>Loading...</div>;
+
+  // TODO: ローディング状態を追加
+  const isLoading = false;
 
   // TODO: エラー時の表示を追加
   // if (error) return <div>Error occurred</div>;
@@ -133,6 +135,7 @@ export const CaseDetailPage = () => {
 
   return (
     <Stack gap="xl">
+      <LoadingOverlay visible={isLoading} />
       {/* ヘッダー - 報酬と応募ボタン */}
       <Card>
         <Grid>
