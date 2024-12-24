@@ -5,7 +5,6 @@ import { api, queryClient } from '@/services/api/apiClient';
 import { showErrorNotification } from '@/utils/notification/showErrorNotification';
 import { showSuccessNotification } from '@/utils/notification/showSuccessNotification';
 
-
 export interface CreateCaseRequest {
   title: string; // max 100文字
   description: string; // max 2000文字
@@ -63,10 +62,10 @@ export const useCreateCase = createMutationHook<
   CreateCaseRequest
 >(createCase, {
   onSuccess: () => {
-    showSuccessNotification({ message: '案件を作成しました' });
+    showSuccessNotification({ message: '依頼を作成しました' });
     queryClient.invalidateQueries({ queryKey: ['case'] });
   },
   onError: () => {
-    showErrorNotification({ message: '案件の作成に失敗しました' });
+    showErrorNotification({ message: '依頼の作成に失敗しました' });
   },
 });

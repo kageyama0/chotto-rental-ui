@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
+import { Badge } from '@/components/base/Badge/Badge';
+import { Card } from '@/components/base/Card/Card';
+import { Container } from '@/components/base/Container/Container';
+import { Grid } from '@/components/base/Grid/Grid';
+import { GridCol } from '@/components/base/Grid/GridCol';
+import { Group } from '@/components/base/Group/Group';
+import { Select } from '@/components/base/Select/Select';
+import { Stack } from '@/components/base/Stack/Stack';
+import { TextInput } from '@/components/base/TextInput/TextInput';
+import { Text } from '@/components/base/Typography/Text';
+import { Title } from '@/components/base/Typography/Title';
 import { useState } from 'react';
-import { Badge } from "@/components/base/Badge/Badge"
-import { Card } from "@/components/base/Card/Card"
-import { Container } from "@/components/base/Container/Container"
-import { Grid } from "@/components/base/Grid/Grid"
-import { GridCol } from "@/components/base/Grid/GridCol"
-import { TextInput } from "@/components/base/TextInput/TextInput"
-import { Select } from "@/components/base/Select/Select"
-import { Stack } from "@/components/base/Stack/Stack"
-import { Text } from "@/components/base/Typography/Text"
-import { Title } from "@/components/base/Typography/Title"
-import { Group } from "@/components/base/Group/Group"
 
 // サンプルデータ
 const sampleCases: Case[] = [
@@ -33,10 +33,10 @@ const sampleCases: Case[] = [
     budget: 3000000,
     description: '勤怠管理・経費精算システムの刷新',
   },
-  // ... 他の案件データ
+  // ... 他の依頼データ
 ];
 
-export const CaseList = () => {
+export const CaseSearchPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<string | null>(null);
 
@@ -66,13 +66,13 @@ export const CaseList = () => {
   return (
     <Container size="lg" py="xl">
       <Stack gap="xl">
-        <Title order={1}>案件一覧</Title>
+        <Title order={1}>依頼一覧</Title>
 
         {/* 検索・フィルターエリア */}
         <Grid>
           <GridCol span={8}>
             <TextInput
-              placeholder="案件名または顧客名で検索"
+              placeholder="依頼名または顧客名で検索"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />

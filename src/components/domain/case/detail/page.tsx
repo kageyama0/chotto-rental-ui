@@ -1,18 +1,17 @@
-"use client";
+'use client';
 
-import { useSearchParams } from 'next/navigation';
-import { Card } from '@/components/base/Card/Card';
-import { Group } from '@/components/base/Group/Group';
 import { Badge } from '@/components/base/Badge/Badge';
+import type { BadgeProps } from '@/components/base/Badge/Badge.types';
+import { Button } from '@/components/base/Button/Button';
+import { Card } from '@/components/base/Card/Card';
 import { Grid } from '@/components/base/Grid/Grid';
+import { GridCol } from '@/components/base/Grid/GridCol';
+import { Group } from '@/components/base/Group/Group';
+import { LoadingOverlay } from '@/components/base/LoadingOverlay/LoadingOverlay';
 import { Stack } from '@/components/base/Stack/Stack';
 import { Text } from '@/components/base/Typography/Text';
-import { Button } from '@/components/base/Button/Button';
 import { Title } from '@/components/base/Typography/Title';
-import { Avatar } from '@/components/base/Avatar/Avatar';
-import type { BadgeProps } from '@/components/base/Badge/Badge.types';
-import { GridCol } from '@/components/base/Grid/GridCol';
-import { LoadingOverlay } from '@/components/base/LoadingOverlay/LoadingOverlay';
+import { useSearchParams } from 'next/navigation';
 
 interface CaseDetail {
   id: string;
@@ -178,7 +177,7 @@ export const CaseDetailPage = () => {
         {/* メイン情報 */}
         <GridCol span={{ base: 12, md: 8 }}>
           <Stack gap="lg">
-            {/* 案件の詳細 */}
+            {/* 依頼の詳細 */}
             <Card>
               <Stack gap="md">
                 <Title order={3} size="h4">
@@ -189,7 +188,6 @@ export const CaseDetailPage = () => {
                 </Text>
               </Stack>
             </Card>
-
             依頼者情報
             <Card>
               <Title order={3} size="h4" mb="md">

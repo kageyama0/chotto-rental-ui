@@ -1,4 +1,4 @@
-// 案件の型定義
+// 依頼の型定義
 interface Case {
   id: string;
   title: string;

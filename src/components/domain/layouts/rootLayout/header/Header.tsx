@@ -4,6 +4,7 @@ import { Anchor } from '@/components/base/Anchor/Anchor';
 import { Avatar } from '@/components/base/Avatar/Avatar';
 import { Group } from '@/components/base/Group/Group';
 import { IconLogout } from '@/components/base/Icon/IconLogout';
+import { Image } from '@/components/base/Image/Image';
 import {
   Menu,
   MenuDivider,
@@ -18,7 +19,6 @@ import {
   SIGNUP_CLIENT_PATH,
 } from '@/const/clientPath';
 import { IconUserCircle } from '@tabler/icons-react';
-import { Image } from "@/components/base/Image/Image";
 import { usePathname } from 'next/navigation';
 
 export const Header = () => {
@@ -40,7 +40,7 @@ export const Header = () => {
         <Group>
           <Group gap="lg">
             <Anchor href="/case/search" underline="hover" c="gray" fw="bold">
-              案件を探す
+              依頼を探す
             </Anchor>
 
             <Anchor href="/case/create" underline="hover" c="gray" fw="bold">

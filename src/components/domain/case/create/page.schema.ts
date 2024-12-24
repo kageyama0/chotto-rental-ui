@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const createCaseFormSchema = z.object({
   title: z
     .string()
-    .min(1, '案件タイトルを入力してください')
+    .min(1, '依頼タイトルを入力してください')
     .max(100, 'タイトルは100文字以内で入力してください'),
   description: z
     .string()

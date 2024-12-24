@@ -5,14 +5,15 @@ import { Container } from '@/components/base/Container/Container';
 import { Stack } from '@/components/base/Stack/Stack';
 import { Text } from '@/components/base/Typography/Text';
 import { Title } from '@/components/base/Typography/Title';
-import { CaseList } from '@/components/domain/case/list';
+import { CaseSearchPage } from '@/components/domain/case/search/page';
 import { useRouter } from 'next/navigation';
 
+// TODO: 後でいい感じに変更する
 export const HomePage = () => {
   const router = useRouter();
   return (
     <Container size="lg" py="xl">
-      <Stack gap="xl" align='center'>
+      <Stack gap="xl" align="center">
         {/* ヒーローセクション */}
         <Stack gap="xs" align="center" py="xl">
           <Title order={1}>ちょっとした手伝いを、気軽に</Title>
@@ -32,7 +33,7 @@ export const HomePage = () => {
           依頼を作成する
         </Button>
 
-        <CaseList />
+        <CaseSearchPage />
       </Stack>
     </Container>
   );
